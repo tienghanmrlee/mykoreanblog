@@ -1,0 +1,169 @@
+/* Reset nhẹ nhàng để layout mượt */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Noto Sans KR", sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #f8f9ff, #e8f0ff);
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Header năng động */
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  padding: 15px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #0078ff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+header nav a {
+  text-decoration: none;
+  margin-left: 25px;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #0078ff;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+  background: url('https://cdn.pixabay.com/photo/2017/08/30/02/25/korea-2697869_1280.jpg') center/cover no-repeat;
+  color: white;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.hero button {
+  background-color: #ff4f70;
+  border: none;
+  color: #fff;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.hero button:hover {
+  background-color: #ff6f90;
+  transform: scale(1.05);
+}
+
+/* Section chính */
+section {
+  padding: 80px 60px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Card Blog */
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  width: 300px;
+  transition: transform 0.3s;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  color: #0078ff;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #ccc;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+footer a {
+  color: #ff4f70;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
