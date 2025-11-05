@@ -1,0 +1,17 @@
+import React from "react";
+import CourseCard from "../components/CourseCard";
+
+export default function Courses() {
+  const items = [
+    { img:"https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200", title:"TOPIK", desc:"Luyện đề, kỹ năng viết nghe đọc nói" },
+    { img:"https://images.unsplash.com/photo-1596495577886-d920f1fb7238?q=80&w=1200", title:"Giao tiếp", desc:"Tập phản xạ, phát âm, tình huống" }
+  ];
+  return (
+    <section className="section">
+      <h2 className="section-title">Các khoá học</h2>
+      <div className="card-grid">
+        {items.map((it,i)=> <CourseCard key={i} {...it} />)}
+      </div>
+    </section>
+  );
+}

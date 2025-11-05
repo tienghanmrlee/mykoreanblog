@@ -1,0 +1,9 @@
+import axios from "axios";
+
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbwq6Ug6lf3IxjwaNV9WxCsnP_XAIMjMhGh4K3hUA7-u70YzFP1wNRiC8y-79eb9rwUCKQ/exec";
+
+export async function postToSheet(data) {
+  // data: object { name, email, phone, course, message, type }
+  const res = await axios.post(SHEET_URL, data, { headers: { 'Content-Type': 'application/json' } });
+  return res.data;
+}

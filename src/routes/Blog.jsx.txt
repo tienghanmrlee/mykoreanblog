@@ -1,0 +1,18 @@
+import React from "react";
+export default function Blog(){
+  return (
+    <section className="section">
+      <h2 className="section-title">Blog & Tin tức</h2>
+      <div style={{maxWidth:900, margin:"0 auto", color:"#444"}}>
+        <article style={{marginBottom:18}}>
+          <h3>5 mẹo nhớ từ vựng nhanh</h3>
+          <p>Áp dụng hình ảnh, âm thanh và lặp ngắt quãng...</p>
+        </article>
+        <article>
+          <h3>Chuẩn bị hồ sơ du học 2025</h3>
+          <p>Checklist: giấy tờ, chứng minh tài chính, kế hoạch học tập...</p>
+        </article>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,14 @@
+import React from "react";
+export default function Hero({ onAuth }) {
+  return (
+    <section className="hero">
+      <div className="container hero-content">
+        <h1>Học tiếng Hàn cùng Mr. Lee</h1>
+        <p>Học vui — Dùng được — Chuẩn du học Hàn Quốc</p>
+        <div className="cta">
+          <button className="btn btn-primary" onClick={() => onAuth && onAuth("register")}>Đăng ký ngay</button>
+        </div>
+      </div>
+    </section>
+  );
+}

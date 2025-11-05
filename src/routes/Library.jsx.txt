@@ -1,0 +1,11 @@
+import React from "react";
+export default function Library(){
+  return (
+    <section className="section">
+      <h2 className="section-title">Thư viện học liệu</h2>
+      <div style={{maxWidth:900, margin:"0 auto"}}>
+        <p>Slide, PDF, video bài giảng sẽ được cập nhật tại đây.</p>
+      </div>
+    </section>
+  );
+}

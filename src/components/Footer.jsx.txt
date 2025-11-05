@@ -1,0 +1,9 @@
+import React from "react";
+export default function Footer() {
+  return (
+    <footer>
+      <p>© 2025 Mr. Lee Korean Academy • Designed with 💙</p>
+      <p style={{marginTop:8}}>Email: mrlee.koreanedu@gmail.com</p>
+    </footer>
+  );
+}

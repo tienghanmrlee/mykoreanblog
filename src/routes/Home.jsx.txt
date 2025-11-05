@@ -1,0 +1,42 @@
+import React from "react";
+import Hero from "../components/Hero";
+import CourseCard from "../components/CourseCard";
+
+export default function Home({ onAuth }) {
+  const courses = [
+    { img: "https://images.unsplash.com/photo-1584697964154-1c53b1b6a583?q=80&w=1200", title: "Luyện TOPIK", desc: "Ôn thi theo format mới, mẹo nhớ..." },
+    { img: "https://images.unsplash.com/photo-1596495577886-d920f1fb7238?q=80&w=1200", title: "Giao tiếp thực tế", desc: "Tình huống quán ăn, ký túc xá..." },
+    { img: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200", title: "Chuẩn bị du học", desc: "Hồ sơ, phỏng vấn, cuộc sống..." }
+  ];
+
+  return (
+    <>
+      <Hero onAuth={onAuth} />
+      <section className="section">
+        <h2 className="section-title">Khóa học nổi bật</h2>
+        <div className="card-grid">
+          {courses.map((c,i) => <CourseCard key={i} {...c} />)}
+        </div>
+      </section>
+
+      <section className="section register-section" id="register-form">
+        <h2 className="section-title">Đăng ký nhanh</h2>
+        <form className="register-grid" onSubmit={(e)=>{e.preventDefault(); alert('SENT DEMO');}}>
+          <input name="name" placeholder="Họ và tên" required />
+          <input name="email" placeholder="Email" type="email" required />
+          <input name="phone" placeholder="Số điện thoại" />
+          <select name="course" required>
+            <option value="">-- Chọn khóa học --</option>
+            <option value="TOPIK">TOPIK</option>
+            <option value="Giao tiếp">Giao tiếp</option>
+            <option value="Du học">Du học</option>
+          </select>
+          <textarea name="message" className="full" placeholder="Lời nhắn / mục tiêu"></textarea>
+          <div className="form-actions full">
+            <button className="btn btn-primary" type="submit">Gửi đăng ký</button>
+          </div>
+        </form>
+      </section>
+    </>
+  );
+}

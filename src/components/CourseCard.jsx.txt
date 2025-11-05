@@ -1,0 +1,12 @@
+import React from "react";
+export default function CourseCard({ img, title, desc }) {
+  return (
+    <div className="card">
+      <img src={img} alt={title} />
+      <div className="card-body card-content">
+        <h3>{title}</h3>
+        <p>{desc}</p>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,63 @@
+import React, { useState } from "react";
+import { postToSheet } from "../utils/sheetApi";
+
+export default function AuthModal({ mode = "login", onClose }) {
+  const [form, setForm] = useState({ name:"", email:"", phone:"", course:"", message:"", password:"" });
+  const [loading, setLoading] = useState(false);
+  const isRegister = mode === "register";
+
+  const handleChange = (e) => setForm({...form, [e.target.name]: e.target.value});
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      // For register: store to sheet; for login: here is demo (no auth server)
+      if (isRegister) {
+        await postToSheet({ ...form, type:"register" });
+        alert("Đăng ký thành công! Mr. Lee sẽ liên hệ sớm.");
+      } else {
+        // login demo - in production, validate credentials via auth service
+        alert("Đăng nhập demo thành công.");
+      }
+      onClose && onClose();
+    } catch (err) {
+      console.error(err);
+      alert("Lỗi gửi dữ liệu. Kiểm tra Google Script URL.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="modal">
+      <div className="modal-box">
+        <button className="modal-close" onClick={onClose}>✕</button>
+        <h3 style={{marginBottom:12}}>{isRegister ? "Đăng ký" : "Đăng nhập"}</h3>
+
+        <form onSubmit={handleSubmit}>
+          {isRegister && <input name="name" value={form.name} onChange={handleChange} placeholder="Họ tên" required />}
+          <input name="email" value={form.email} onChange={handleChange} placeholder="Email" type="email" required />
+          {isRegister && <input name="phone" value={form.phone} onChange={handleChange} placeholder="Số điện thoại" />}
+          {!isRegister && <input name="password" value={form.password} onChange={handleChange} placeholder="Mật khẩu" type="password" />}
+          {isRegister && (
+            <>
+              <select name="course" value={form.course} onChange={handleChange} required>
+                <option value="">-- Chọn khóa học --</option>
+                <option value="TOPIK">TOPIK</option>
+                <option value="Giao tiếp">Giao tiếp</option>
+                <option value="Du học">Du học</option>
+              </select>
+              <textarea name="message" value={form.message} onChange={handleChange} placeholder="Ghi chú (mục tiêu, lịch học...)"></textarea>
+            </>
+          )}
+          <div style={{marginTop:10}}>
+            <button className="btn btn-primary" type="submit" disabled={loading}>
+              {loading ? "Đang gửi..." : isRegister ? "Gửi đăng ký" : "Đăng nhập"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,20 @@
+import React from "react";
+export default function Header({ onAuth }) {
+  return (
+    <header>
+      <div className="logo">Mr. Lee 🇰🇷</div>
+      <nav>
+        <a href="/">Trang chủ</a>
+        <a href="/courses">Khóa học</a>
+        <a href="/blog">Blog</a>
+        <a href="/library">Thư viện</a>
+        <a href="/contact">Liên hệ</a>
+      </nav>
+      <div className="header-actions">
+        <button className="btn btn-ghost" onClick={() => onAuth && onAuth("login")}>Đăng nhập</button>
+        <button className="btn btn-primary" onClick={() => onAuth && onAuth("register")}>Đăng ký</button>
+      </div>
+    </header>
+  );
+}
+
